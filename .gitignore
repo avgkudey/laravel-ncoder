@@ -1,0 +1,16 @@
+/node_modules
+/public/hot
+/public/storage
+/storage/*.key
+/vendor
+.env
+.env.backup
+.phpunit.result.cache
+Homestead.json
+Homestead.yaml
+npm-debug.log
+yarn-error.log
+1. The trunk of a dead tree, cleared of branches.
+2. Any bulky piece as cut from the above, used as timber, fuel etc.
+3. Anything shaped like a log; a cylinder.
+ Definitions by Grammarly

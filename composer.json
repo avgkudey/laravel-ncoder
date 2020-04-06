@@ -1,0 +1,15 @@
+{
+    "name": "tetracode/ncoder",
+    "description": "laravel api encryption middleware by Tetracode",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "kasun",
+            "email": "avgk.udey@gmail.com"
+        }
+    ],
+    "require": {},
+    "require-dev": {
+        "orchestra/testbench": "^5.1"
+    }
+}
