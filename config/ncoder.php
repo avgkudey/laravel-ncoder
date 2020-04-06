@@ -1,4 +1,4 @@
 <?php
 return [
-    'encription_key' => 'your_key'
+    'encryption_key' => env('NCODER_KEY', 'base64:egGf2oTpKV5EYrRFv8gm6wJAf8mQP4gZ0tAdtDoGWJ4='),
 ];

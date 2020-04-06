@@ -21,7 +21,7 @@
     @endif
 
     <h3>Contact Us</h3>
-    <h2>Key {{$encription_key}}</h2>
+    <h2>Key {{$encryption_key}}</h2>
     <form action="{{route('contact')}}" method="POST">
         @csrf
         <div class="form-group">

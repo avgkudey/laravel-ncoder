@@ -7,7 +7,7 @@ namespace Tetracode\Ncoder\Http\Controllers;
 class ContactFormController {
     public function index()
     {
-        return view('ncoder::contact')->with('encription_key',config('ncoder.encription_key'));
+        return view('ncoder::contact')->with('encryption_key',config('ncoder.encryption_key'));
     }
 
     public function sendMail(Request $request)
