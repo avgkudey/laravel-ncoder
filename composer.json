@@ -1,15 +1,33 @@
 {
-    "name": "tetracode/ncoder",
-    "description": "laravel api encryption middleware by Tetracode",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "kasun",
-            "email": "avgk.udey@gmail.com"
-        }
-    ],
-    "require": {},
-    "require-dev": {
-        "orchestra/testbench": "^5.1"
+  "name": "tetracode/ncoder",
+  "description": "laravel api encryption middleware by Tetracode",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "kasun",
+      "email": "avgk.udey@gmail.com"
     }
+  ],
+  "require": {
+  },
+  "require-dev": {
+    "orchestra/testbench": "^5.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "Tetracode\\Ncoder\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tetracode\\Ncoder\\Tests\\": "tests/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Tetracode\\Ncoder\\NcoderBaseServiceProvider"
+      ]
+    }
+  }
 }
