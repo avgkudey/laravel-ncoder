@@ -15,7 +15,6 @@ class NcoderBaseServiceProvider extends ServiceProvider {
         if ($this->app->runningInConsole()) {
             $this->registerPublishing();
         }
-
         $this->registerResources();
     }
 
@@ -47,7 +46,7 @@ class NcoderBaseServiceProvider extends ServiceProvider {
 
     private function routeConfiguration() {
         return [
-            Ncoder::urlPrefix(),
+            'prefix' => Ncoder::urlPrefix(),
             'namespace' => 'Tetracode\Ncoder\Http\Controllers'
 
         ];

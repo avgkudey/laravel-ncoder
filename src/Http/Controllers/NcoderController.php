@@ -4,10 +4,10 @@
 namespace Tetracode\Ncoder\Http\Controllers;
 
 
-class ContactFormController {
+class NcoderController {
     public function index()
     {
-        return view('ncoder::contact');
+        return view('ncoder::welcome');
     }
 
 

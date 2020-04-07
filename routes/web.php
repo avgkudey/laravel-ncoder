@@ -1,2 +1,2 @@
 <?php
-Route::get('contact', 'ContactFormController@index');
+Route::get('welcome', 'NcoderController@index');
