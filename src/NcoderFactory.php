@@ -4,7 +4,6 @@
 namespace Tetracode\Ncoder;
 use Illuminate\Encryption\Encrypter;
 use Illuminate\Support\Str;
-use \Tetracode\Ncoder\Facades\Ncoder;
 
 class NcoderFactory {
     protected $cipher = 'AES-256-CBC';
@@ -18,7 +17,7 @@ class NcoderFactory {
     }
     protected function key()
     {
-        $key = Ncoder::encryptionKey();
+        $key = \Tetracode\Ncoder\Facades\Ncoder::encryptionKey();
         if (Str::contains($key, 'base64:')) {
             $key = substr($key, 7);
         }

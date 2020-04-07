@@ -7,7 +7,6 @@ namespace Tetracode\Ncoder;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 use Tetracode\Ncoder\Facades\Ncoder;
-
 class NcoderBaseServiceProvider extends ServiceProvider {
 
     public function boot() {
