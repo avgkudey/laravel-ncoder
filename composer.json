@@ -9,6 +9,7 @@
     }
   ],
   "require": {
+    "ext-json": "*"
   },
   "require-dev": {
     "orchestra/testbench": "^5.1"
@@ -27,10 +28,7 @@
     "laravel": {
       "providers": [
         "Tetracode\\Ncoder\\NcoderBaseServiceProvider"
-      ],
-      "aliases": {
-        "Ncoder": "Tetracode\\Ncoder\\Facades\\Ncoder"
-      }
+      ]
     }
   }
 }
