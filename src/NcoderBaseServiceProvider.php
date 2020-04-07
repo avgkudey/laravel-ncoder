@@ -6,6 +6,7 @@ namespace Tetracode\Ncoder;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
+use Tetracode\Ncoder\Facades\Ncoder;
 
 class NcoderBaseServiceProvider extends ServiceProvider {
 
@@ -28,8 +29,14 @@ class NcoderBaseServiceProvider extends ServiceProvider {
     private function registerResources() {
         $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
         $this->loadViewsFrom(__DIR__ . '/../resources/views', 'ncoder');
-
+        $this->registerFacades();
         $this->registerRoutes();
+    }
+
+    protected function registerFacades() {
+        $this->app->singleton('Ncoder', function ($app) {
+            return new \Tetracode\Ncoder\Ncoder();
+        });
     }
 
     protected function registerRoutes() {
@@ -40,8 +47,8 @@ class NcoderBaseServiceProvider extends ServiceProvider {
 
     private function routeConfiguration() {
         return [
-            'prefix' => Ncoder::urlPrefix(),
-            'namespace'=>'Tetracode\Ncoder\Http\Controllers'
+            Ncoder::urlPrefix(),
+            'namespace' => 'Tetracode\Ncoder\Http\Controllers'
 
         ];
     }
