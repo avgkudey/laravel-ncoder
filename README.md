@@ -102,3 +102,13 @@ class UserController extends Controller {
 ```
 
     
+## Credits
+
+- [Contributors](https://github.com/avgkudey/laravel-ncoder/graphs/contributors)
+## Vue Package
+
+- [Vue Ncoder](https://github.com/avgkudey/laravel-ncoder)
+
+## License
+
+The MIT License (MIT). Please see [License File](LICENCE) for more information.
