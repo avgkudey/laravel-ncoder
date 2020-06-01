@@ -8,7 +8,7 @@ use Closure;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
-class EncryptHttp
+class ForceEncryptHttp
 {
 
     protected $ncoder;
@@ -32,6 +32,7 @@ class EncryptHttp
             $this->modifyRequest($request);
         }
 
+        $request->headers->set('x-response-encrypted', 1);
         $response = $next($request);
 
 

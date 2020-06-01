@@ -8,6 +8,10 @@ use Illuminate\Support\ServiceProvider;
 
 class NcoderBaseServiceProvider extends ServiceProvider {
 
+    protected $commands = [
+        'Tetracode\Ncoder\Console\NcoderGenerateSecretCommand',
+    ];
+
     public function boot() {
 
         if ($this->app->runningInConsole()) {
@@ -23,6 +27,8 @@ class NcoderBaseServiceProvider extends ServiceProvider {
 
 
     public function register() {
+        $this->commands($this->commands);
+
     }
 
 }
