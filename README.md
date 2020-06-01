@@ -24,7 +24,6 @@ Above Laravel 5.5 or higher no need to add service provider
   
   ```php
  'providers' => [
-    ...
     Tetracode\Ncoder\NcoderBaseServiceProvider::class,
    ],
   ```
@@ -34,29 +33,72 @@ Add Ncoder middleware to routeMiddleware array in App/Http/Kernel.php
 
 ```php
  protected $routeMiddleware = [
- ...
+
  'ncoder'=>\Tetracode\Ncoder\Http\Middleware\EncryptHttp::class,
+ 'xncoder'=>\Tetracode\Ncoder\Http\Middleware\ForceEncryptHttp::class,
  ]
 ```
  - #### Publishing Config file
  ```bash
  php artisan vendor:publish --tag ncoder-config
+``` 
+- #### Generate Secret Key
+ ```bash
+ php artisan ncoder:secret
 ```
 
-### Environment Setup
-Add Environment variable to env file
-   ```
-NCODER_KEY=Your_base64_encryption_key
-   ```
-Eg : 
-```
-NCODER_KEY=base64:MBp8ntcfFJfdhHWInJ/lUwVtgNl4WNQY+h0Pin6B7WM=
-```
+ ### Middleware Types
+ 
+ **ncoder :** this will encrypt response only requested in front end.
+ **xncoder :** this will encrypt response no matter requested in front end or not.
+
+    
+
  ### Usage
- Eg :
+ Route
  ```php
 Route::middleware('ncoder')->post('api-endpoint', 'ApiController@store');
+
+//Force Encrypt Response
+Route::middleware('xncoder')->post('api-endpoint', 'ApiController@store');
+
+Route::group(['middleware' => ['ncoder']], function () {
+    Route::post('api-endpoint', 'ApiController@store');
+});
+
+//Force Encrypt Response
+Route::group(['middleware' => ['xncoder']], function () {
+    Route::post('api-endpoint', 'ApiController@store');
+});
 ```   
-    
-    
+Controller
+
+```php
+class UserController extends Controller {
+
+    public function __construct() {
+        $this->middleware(['ncoder']);
+    }
+
+    public function index() {
+         return response()->json(User::all());
+    }
+}
+
+```
+OR
+
+```php
+class UserController extends Controller {
+
+    public function __construct() {
+        $this->middleware(['xncoder']);
+    }
+
+    public function index() {
+        return response()->json(User::all());
+    }
+}
+```
+
     
